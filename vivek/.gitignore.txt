@@ -1,1 +1,1 @@
-error_gitignore.log
+*.log
