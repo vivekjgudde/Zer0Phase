@@ -1,0 +1,1 @@
+git ignore --> create a file in branch root path with name .gitignorea nd save it, open the same file and add error.log etc , which will not be tracked and ingnored by git
