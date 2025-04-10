@@ -1,0 +1,334 @@
+02-04-2025 (Introduction to version control systems and git)
+
+Version Control Systems (VCS) are tools that help developers manage changes to source code over time, 
+allowing multiple people to work on a project without conflicts. 
+
+--> There are two main types of VCS: Centralized Version Control Systems (CVCS) and Distributed Version Control Systems (DVCS).
+
+Here are some examples and details about each type:
+
+1. Centralized Version Control System (CVCS):
+In a CVCS, the version control repository is stored on a central server. 
+Each developer gets their own working copy of the files from this central server.
+
+Examples:
+
+Subversion (SVN): A popular centralized version control system that is easy to set up and use. 
+    All versions of the project are stored in a central repository.
+
+CVS (Concurrent Versions System): One of the earliest version control systems, but now considered outdated. 
+   It tracks changes to files in a central repository.
+
+Perforce (Helix Core): A centralized version control system often used for large projects with big binary assets, like video games.
+
+Key Features:
+*Centralized server where all the history is stored.
+*Developers must be connected to the server to check out code, commit changes, or update their working copies.
+*Easier to manage for smaller teams or smaller projects.
+
+---->If the central server goes down, no one can access the code.
+
+2. Distributed Version Control System (DVCS):
+In a DVCS, every developer has their own copy of the full repository, including the entire history of the project.
+This allows developers to work offline and commit changes locally before pushing to a central server if desired.
+
+Examples:
+
+Git: By far the most popular and widely used distributed version control system. Used by GitHub, GitLab, Bitbucket, etc.
+
+Mercurial: Another DVCS similar to Git, though it's less widely adopted. It provides similar features but is often considered easier to use.
+
+Bazaar (Bzr): Developed by Canonical (the makers of Ubuntu), Bazaar is another DVCS that can be used both for centralized and decentralized workflows.
+
+Key Features:
+*Each developer has a full local copy of the entire repository with all its history.
+*Developers can work offline and sync changes to the central repository whenever convenient.
+*It offers better branching and merging features.
+
+--->Allows multiple repositories to sync with each other, which can be useful in large, complex projects.
+
+3. Other Version Control Systems:
+Hybrid Systems: Some systems allow a hybrid approach, offering both centralized and distributed options, 
+such as Git with Subversion backend support. These can be configured to use one or the other based on needs.
+
+git - global information tracker
+
+1)What is Git?
+--->Git is a distributed version control system (VCS). 
+    It helps you manage changes to your project files over time, keeping track of revisions, and allows collaboration with other people.
+
+--->Unlike older version control sGystems, Git allows multiple copies of the repository (your codebase) to be stored locally and on a remote server 
+     (like GitHub, GitLab, etc.).
+
+2)Setting Up Git
+Install Git:
+-->You can download and install Git from git-scm.com.
+
+-->After installation, you can check if it's working by running:
+      git --version
+
+3)Configure Git (First-time setup):
+
+-->Set up your username and email (this is important for commit identification).
+      git config --global user.name "Your Name"
+      git config --global user.email "your-email@example.com"
+
+4) Creating a Git Repository
+A repository (repo) is where all your project files and the version history are stored.
+	 mkdir my-project        # Create a new directory
+         cd my-project           # Change into that directory
+         git init                # Initialize a new Git repository
+
+This will create a .git directory, which contains all the metadata about your project.
+
+5) Basic Git Workflow
+Git works by keeping track of the files in your working directory and allowing you to record changes in the repository through commits. 
+Here's the basic flow:
+
+A)Track Files:
+---> Git starts by "staging" files that you want to track. You need to tell Git which files should be added to the repository.
+           git add filename        # Add a specific file
+           git add .               # Add all files in the directory
+
+B) Commit Changes:
+---> After staging files, you commit them to the repository, saving the snapshot of the project.
+           git commit -m "Your commit message"  # Commit changes with a message
+ f
+c)Check the Status:
+---> To see which files have been modified or staged for commit:
+           git status
+
+Assignments:
+1) Install git and gitbash. configure global variables name ad email create a repo local
+2) create an account in github
+3) find the differences in the different vcs
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+03-04-2025 (day-2) git branches
+
+Understanding Git Status, Log, Stash, and Stash Pop
+
+2. git status
+Shows the current state of the working directory and staging area.
+Helps to check which files are modified, staged, or untracked
+
+Scenario 1: Checking untracked files
+
+git log
+Displays commit history with details such as commit hash, author, date, and message.
+
+Scenario 1: Viewing commit history in brief format
+git log --oneline --graph --all
+
+example gives below output:
+* abc123 Initial commit
+* def456 Added new feature
+* ghi789 Fixed a bug
+
+git stash
+Temporarily saves uncommitted changes to clean the working directory without committing them.
+
+git stash pop
+Reapplies the last stashed changes and removes them from the stash list
+
+3. Understanding Git Branching
+
+What is a Branch in Git?
+A branch in Git is like a separate workspace where you can develop features or fix bugs without affecting the main branch.
+It allows multiple developers to work simultaneously without overwriting each other's work.
+
+Why Use Branches?
+Work on new features without disturbing the main branch.
+Easy to test and review before merging.
+Allows multiple developers to work on different tasks independently.
+
+# Create a new branch
+git branch feature-branch
+
+# List all branches
+git branch
+
+# Switch to an existing branch
+git checkout feature-branch
+
+# Create a new branch and switch to it immediately
+git checkout -b new-feature
+
+Delete a Local Branch
+A local branch can be deleted when it's no longer needed.
+
+Command:
+git branch -d branch-name
+
+To force delete it, use:
+git branch -D branch-name
+
+Assignment:
+
+1)Create a GitHub repository.
+2)Add two branches (feature-1 and feature-2).
+3)Modify files and merge them into main.
+4)Push changes to GitHub and open a Pull Request.
+
+-------------------------------------------------------------------------------------------------------
+05-04-2025
+
+git config --list
+git branch -a
+
+Create and switch to a new branch:
+git checkout -b <branch-name>
+
+Commit with a detailed message:
+git commit -m "Title" -m "Detailed description of the commit"
+
+Amend the last commit (without changing the message):
+git commit --amend 
+
+Pulling and Pushing Changes
+Pull latest changes from the remote branch:
+git pull origin <branch-name>
+
+Push changes to the remote repository:
+git push origin <branch-name>
+
+
+Force push changes (use with caution):
+git push --force
+
+Merging and Rebasing
+Merge a branch into the current branch:
+git merge <branch-name>
+
+
+Rebase the current branch onto another branch:
+git rebase <branch-name>
+
+
+Resetting and Reverting
+Undo changes before committing:
+
+
+Unstage a file but keep changes:
+git reset <file-name>
+
+
+Reset everythoing to the last commit:
+git reset --hard HEAD
+
+Soft Reset	git reset --soft <commit>	Moves HEAD to the commit but keeps changes staged
+Mixed Reset	git reset --mixed <commit>	Moves HEAD, unstages changes but keeps them in working directory
+Hard Reset	git reset --hard <commit>       Moves HEAD, unstages and deletes all changes
+
+Use soft reset when you want to modify the last commit.
+Use mixed reset when you need to unstage files without deleting changes.
+Use hard reset when you want to discard all changes.
+
+Revert a commit (create a new commit to undo changes):
+git revert <commit-hash>
+
+When to Use git revert?
+When you want to undo a commit without losing history.
+When working on a shared branch (team collaboration).
+When you want to fix mistakes without rewriting history.
+
+
+----------------------------------------------------------------------------------
+
+day -4 
+07-04-2025
+
+1. Stashing Changes
+
+Temporarily save uncommitted changes without committing them:
+git stash
+
+Apply the latest stash:
+git stash apply
+
+View all stashed changes:
+git stash list
+
+Drop the latest stash:
+git stash drop
+
+
+2. Checking Logs & History
+
+View commit history in one line:
+git log --oneline --graph --decorate --all
+
+View changes in a commit:
+git show <commit-hash>
+
+
+3. Checking Differences
+
+Compare working directory with the last commit:
+git diff
+
+
+Compare staged changes with the last commit:
+git diff --cached
+
+4. Working with Remote Repositories
+
+List remote repositories:
+git remote -v
+
+Add a new remote repository:
+git remote add origin <remote-url>
+
+Remove a remote repository:
+git remote remove <remote-name>
+
+Fetch changes from a remote repository without merging:
+git fetch origin
+
+5. Deleting Branches
+
+Delete a remote branch:
+git push origin --delete <branch-name>
+
+
+6. Tagging
+
+Tagging in Git is a way to mark important commits, often used for versioning releases like v1.0, v2.0, etc. There are two main types of tags:
+
+Lightweight Tags: Simple markers pointing to a commit.
+
+Annotated Tags: Contain metadata like author, date, and message.
+
+Create a new tag:
+git tag <tag-name>
+
+Push a tag to remote:
+git push origin <tag-name>
+
+Delete a local tag:
+git tag -d <tag-name>
+
+Delete a remote tag:
+git push --delete origin <tag-name>
+
+
+7. Cherry-Picking
+
+Cherry-picking is a Git feature that allows you to apply specific commits from one branch to another without merging the entire branch. This is useful when you want to pick only a certain fix or feature without including other changes.
+
+Apply a specific commit from another branch:
+git cherry-pick <commit-hash>
+
+Cherry-pick multiple commits:
+git cherry-pick <commit-hash1> <commit-hash2>
+
+Continue cherry-pick after resolving conflicts:
+git cherry-pick --continue
+
+Abort cherry-pick:
+git cherry-pick --abort
+
+
+
+
+

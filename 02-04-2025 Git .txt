@@ -1,0 +1,112 @@
+02-04-2025 (Introduction to version control systems and git)
+
+Version Control Systems (VCS) are tools that help developers manage changes to source code over time, 
+allowing multiple people to work on a project without conflicts. 
+
+--> There are two main types of VCS: Centralized Version Control Systems (CVCS) and Distributed Version Control Systems (DVCS).
+
+Here are some examples and details about each type:
+
+1. Centralized Version Control System (CVCS):
+In a CVCS, the version control repository is stored on a central server. 
+Each developer gets their own working copy of the files from this central server.
+
+Examples:
+
+Subversion (SVN): A popular centralized version control system that is easy to set up and use. 
+    All versions of the project are stored in a central repository.
+
+CVS (Concurrent Versions System): One of the earliest version control systems, but now considered outdated. 
+   It tracks changes to files in a central repository.
+
+Perforce (Helix Core): A centralized version control system often used for large projects with big binary assets, like video games.
+
+Key Features:
+*Centralized server where all the history is stored.
+*Developers must be connected to the server to check out code, commit changes, or update their working copies.
+*Easier to manage for smaller teams or smaller projects.
+
+---->If the central server goes down, no one can access the code.
+
+2. Distributed Version Control System (DVCS):
+In a DVCS, every developer has their own copy of the full repository, including the entire history of the project.
+This allows developers to work offline and commit changes locally before pushing to a central server if desired.
+
+Examples:
+
+Git: By far the most popular and widely used distributed version control system. Used by GitHub, GitLab, Bitbucket, etc.
+
+Mercurial: Another DVCS similar to Git, though it's less widely adopted. It provides similar features but is often considered easier to use.
+
+Bazaar (Bzr): Developed by Canonical (the makers of Ubuntu), Bazaar is another DVCS that can be used both for centralized and decentralized workflows.
+
+Key Features:
+*Each developer has a full local copy of the entire repository with all its history.
+*Developers can work offline and sync changes to the central repository whenever convenient.
+*It offers better branching and merging features.
+
+--->Allows multiple repositories to sync with each other, which can be useful in large, complex projects.
+
+3. Other Version Control Systems:
+Hybrid Systems: Some systems allow a hybrid approach, offering both centralized and distributed options, 
+such as Git with Subversion backend support. These can be configured to use one or the other based on needs.
+
+
+
+git - global information tracker
+
+1)What is Git?
+--->Git is a distributed version control system (VCS). 
+    It helps you manage changes to your project files over time, keeping track of revisions, and allows collaboration with other people.
+
+--->Unlike older version control systems, Git allows multiple copies of the repository (your codebase) to be stored locally and on a remote server 
+     (like GitHub, GitLab, etc.).
+
+2)Setting Up Git
+Install Git:
+-->You can download and install Git from git-scm.com.
+
+-->After installation, you can check if it's working by running:
+      git --version
+
+
+3)Configure Git (First-time setup):
+
+-->Set up your username and email (this is important for commit identification).
+      git config --global user.name "Your Name"
+      git config --global user.email "your-email@example.com"
+
+4) Creating a Git Repository
+A repository (repo) is where all your project files and the version history are stored.
+	 mkdir my-project        # Create a new directory
+         cd my-project           # Change into that directory
+         git init                # Initialize a new Git repository
+
+This will create a .git directory, which contains all the metadata about your project.
+
+5) Basic Git Workflow
+Git works by keeping track of the files in your working directory and allowing you to record changes in the repository through commits. 
+Here's the basic flow:
+
+A)Track Files:
+---> Git starts by "staging" files that you want to track. You need to tell Git which files should be added to the repository.
+           git add filename        # Add a specific file
+           git add .               # Add all files in the directory
+
+B) Commit Changes:
+---> After staging files, you commit them to the repository, saving the snapshot of the project.
+           git commit -m "Your commit message"  # Commit changes with a message
+ 
+c)Check the Status:
+---> To see which files have been modified or staged for commit:
+           git status
+
+Assignments:
+1) Install git and gitbash. configure global variables name ad email create a repo local
+2) create a account in github
+3) find the differences in the different vcs
+
+
+
+
+
