@@ -1,0 +1,4 @@
+1) understand the git and different types vcs.
+2) install the git 
+3) add global variables in config
+4) add files commit
